@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>eugenewyj-boot-project</artifactId>
+        <groupId>org.eugenewyj.boot</groupId>
+        <version>0.0.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>eugenewyj-boot-dependencies</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+        <poi-ooxml.version>4.1.2</poi-ooxml.version>
+        <eugenewyj-boot.version>0.0.1</eugenewyj-boot.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>${poi-ooxml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.eugenewyj.boot</groupId>
+                <artifactId>poi-eugenewyj-boot-starter</artifactId>
+                <version>${eugenewyj-boot.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>
