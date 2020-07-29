@@ -7,9 +7,7 @@
     <version>0.0.1</version>
     <name>Eugenewyj Boot Project</name>
     <description>Eugenewyj Boot Project</description>
-    <properties>
-        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
-    </properties>
+
     <modules>
         <module>eugenewyj-boot-dependencies</module>
         <module>eugenewyj-boot-parent</module>
