@@ -11,6 +11,7 @@
     <properties>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <poi-ooxml.version>4.1.2</poi-ooxml.version>
+        <jxls-poi.version>2.8.1</jxls-poi.version>
         <eugenewyj-boot.version>0.0.1</eugenewyj-boot.version>
     </properties>
 
@@ -27,6 +28,11 @@
                 <groupId>org.apache.poi</groupId>
                 <artifactId>poi-ooxml</artifactId>
                 <version>${poi-ooxml.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.jxls</groupId>
+                <artifactId>jxls-poi</artifactId>
+                <version>${jxls-poi.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.eugenewyj.boot</groupId>

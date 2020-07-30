@@ -1,4 +1,4 @@
-package org.eugenewyj.boot.poi;
+package org.eugenewyj.boot.poi.annotation;
 
 import java.lang.annotation.*;
 
