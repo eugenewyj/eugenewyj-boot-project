@@ -23,9 +23,9 @@ import java.util.stream.Collectors;
 public final class SimpleExcelExporter {
     private static final Logger logger = LoggerFactory.getLogger(SimpleExcelExporter.class);
 
-    private Class recordClass;
-    private ExcelSheet excelSheet;
-    private List<SimpleExcelExporter.ExportField> exportFields;
+    private final Class recordClass;
+    private final ExcelSheet excelSheet;
+    private final List<SimpleExcelExporter.ExportField> exportFields;
 
     /**
      * 根据导出支持的记录类，构造导出器。
@@ -49,10 +49,10 @@ public final class SimpleExcelExporter {
 
     /**
      * 根据注解导出记录集合到Excel
-     * @param out
+     * @param os
      * @param records
      */
-    public void export(OutputStream out, List records) throws IOException, IllegalAccessException {
+    public void export(OutputStream os, List records) throws IOException, IllegalAccessException {
         records = Optional.ofNullable(records).orElse(new ArrayList());
         logger.info("导出数据到Excel开始，记录数={}", records.size());
         checkRecordClass(records);
@@ -60,7 +60,7 @@ public final class SimpleExcelExporter {
         SXSSFSheet sheet = sxssfWorkbook.createSheet(excelSheet.value());
         int rowNum = createTitleRow(sheet);
         exportData(records, sheet, rowNum);
-        sxssfWorkbook.write(out);
+        sxssfWorkbook.write(os);
         sxssfWorkbook.dispose();
         logger.info("导出数据到Excel结束");
     }
