@@ -180,7 +180,6 @@ public final class SimpleExcelExporter {
         private ExcelColumn annotation;
         private Field field;
         private CellStyle cellStyle;
-        private ExportStyleType exportStyleType;
 
         /**
          * 构造函数
@@ -190,25 +189,6 @@ public final class SimpleExcelExporter {
             this.field = field;
             this.field.setAccessible(true);
             this.annotation = field.getDeclaredAnnotation(ExcelColumn.class);
-            Class type = this.field.getType();
-            if (type.isPrimitive()) {
-                switch (type.getName()) {
-                    case "int":
-                    case "long":
-                    case "short":
-                    case "float":
-                    case "double":
-                        exportStyleType = ExportStyleType.EXPORT_NUMBER;
-                        break;
-                    default:
-                        exportStyleType = ExportStyleType.EXPORT_TEXT;
-                        break;
-                }
-            } else if (Number.class.isAssignableFrom(type)) {
-                exportStyleType = ExportStyleType.EXPORT_NUMBER;
-            } else {
-                exportStyleType = ExportStyleType.EXPORT_TEXT;
-            }
         }
 
         public int getOrder() {
@@ -229,7 +209,14 @@ public final class SimpleExcelExporter {
         }
 
         public ExportStyleType getExportStyleType() {
-            return exportStyleType;
+            Class type = this.field.getType();
+            List primitiveNumberTypes = Arrays.asList("int", "long", "short", "byte", "float", "double");
+            boolean isPrimitiveNumber = type.isPrimitive() && primitiveNumberTypes.contains(type.getName());
+            if (isPrimitiveNumber || Number.class.isAssignableFrom(type)) {
+                return ExportStyleType.EXPORT_NUMBER;
+            } else {
+                return ExportStyleType.EXPORT_TEXT;
+            }
         }
 
         public void setCellStyle(CellStyle cellStyle) {
