@@ -4,13 +4,28 @@
     <groupId>org.eugenewyj.boot</groupId>
     <artifactId>eugenewyj-boot-project</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <name>Eugenewyj Boot Project</name>
     <description>Eugenewyj Boot Project</description>
 
     <modules>
         <module>eugenewyj-boot-dependencies</module>
         <module>eugenewyj-boot-parent</module>
-        <module>eugenewyj-boot-starters/poi-eugenewyj-boot-starter</module>
+        <module>eugenewyj-boot-poi-project/eugenewyj-boot-poi</module>
+        <module>eugenewyj-boot-poi-project/eugenewyj-boot-poi-starter</module>
+        <module>eugenewyj-boot-poi-project/eugenewyj-boot-poi-samples</module>
     </modules>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

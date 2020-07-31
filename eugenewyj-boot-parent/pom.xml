@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eugenewyj.boot</groupId>
     <artifactId>eugenewyj-boot-parent</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>eugenewyj-boot-parent</name>
     <description>Eugenewyj Boot Parent</description>
@@ -15,7 +15,7 @@
             <dependency>
                 <groupId>org.eugenewyj.boot</groupId>
                 <artifactId>eugenewyj-boot-dependencies</artifactId>
-                <version>0.0.1</version>
+                <version>${project.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

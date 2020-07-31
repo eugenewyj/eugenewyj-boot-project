@@ -5,14 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eugenewyj.boot</groupId>
     <artifactId>eugenewyj-boot-dependencies</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <properties>
         <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
         <poi-ooxml.version>4.1.2</poi-ooxml.version>
         <jxls-poi.version>2.8.1</jxls-poi.version>
-        <eugenewyj-boot.version>0.0.1</eugenewyj-boot.version>
     </properties>
 
     <dependencyManagement>
@@ -36,9 +35,10 @@
             </dependency>
             <dependency>
                 <groupId>org.eugenewyj.boot</groupId>
-                <artifactId>poi-eugenewyj-boot-starter</artifactId>
-                <version>${eugenewyj-boot.version}</version>
+                <artifactId>eugenewyj-boot-poi-starter</artifactId>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 </project>

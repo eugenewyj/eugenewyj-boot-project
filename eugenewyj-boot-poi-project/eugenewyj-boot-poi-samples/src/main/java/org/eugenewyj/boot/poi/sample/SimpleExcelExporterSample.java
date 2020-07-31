@@ -1,5 +1,6 @@
-package org.eugenewyj.boot.poi;
+package org.eugenewyj.boot.poi.sample;
 
+import org.eugenewyj.boot.poi.SimpleExcelExporter;
 import org.eugenewyj.boot.poi.annotation.ExcelColumn;
 import org.eugenewyj.boot.poi.annotation.ExcelSheet;
 import org.slf4j.Logger;
@@ -12,14 +13,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * ExcelUtilTest
+ * SimpleExcelExporterSample
  *
  * @author eugene
  * @date 2020/7/29
  */
 
-class AnnotationExcelExporterTests {
-    private static final Logger logger = LoggerFactory.getLogger(AnnotationExcelExporterTests.class);
+class SimpleExcelExporterSample {
+    private static final Logger logger = LoggerFactory.getLogger(SimpleExcelExporterSample.class);
 
     /**
      * 测试导出
