@@ -55,14 +55,25 @@ public final class SimpleExcelExporter {
     public void export(OutputStream os, List records) throws IOException, IllegalAccessException {
         records = Optional.ofNullable(records).orElse(new ArrayList());
         logger.info("导出数据到Excel开始，记录数={}", records.size());
+        SXSSFWorkbook sxssfWorkbook = createWorkBook(records);
+        sxssfWorkbook.write(os);
+        sxssfWorkbook.dispose();
+        logger.info("导出数据到Excel结束");
+    }
+
+    /**
+     * 根据记录集合创建流式Excel Workbook。
+     * @param records
+     * @return
+     * @throws IllegalAccessException
+     */
+    SXSSFWorkbook createWorkBook(List records) throws IllegalAccessException {
         checkRecordClass(records);
         SXSSFWorkbook sxssfWorkbook = new SXSSFWorkbook();
         SXSSFSheet sheet = sxssfWorkbook.createSheet(excelSheet.value());
         int rowNum = createTitleRow(sheet);
         exportData(records, sheet, rowNum);
-        sxssfWorkbook.write(os);
-        sxssfWorkbook.dispose();
-        logger.info("导出数据到Excel结束");
+        return sxssfWorkbook;
     }
 
     /**
